@@ -1,0 +1,1516 @@
+/* ===================================
+   HASSAN AQEL SERVICES - DESIGN SYSTEM
+   ===================================
+   
+   Design Philosophy: Modern, Professional, Tech-Forward
+   - Bold Typography: Playfair Display for headers, Cairo for body
+   - Color Palette: Deep blue (#1a3a52), Vibrant green (#10b981), Neutral grays
+   - Spacing: Generous whitespace, 8px grid system
+   - Interactions: Smooth transitions, hover effects, scroll animations
+   - Depth: Subtle shadows, layered cards, gradient accents
+*/
+
+/* ===================================
+   1. ROOT & VARIABLES
+   =================================== */
+
+:root {
+  --primary: #1a3a52;
+  --primary-dark: #0f2438;
+  --primary-light: #3f97d6;
+  --accent: #10b981;
+  --accent-light: #34d399;
+  --accent-dark: #059669;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --success: #10b981;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #3b76a0;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+
+  --gray-900: #111827;
+
+  --font-display: "Playfair Display", serif;
+  --font-body: "Cairo", sans-serif;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s ease-out;
+}
+
+/* ===================================
+   2. GLOBAL STYLES
+   =================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--gray-800);
+  background-color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===================================
+   3. TYPOGRAPHY
+   =================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--primary);
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1rem;
+  color: var(--gray-700);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-dark);
+}
+
+/* ===================================
+   4. BUTTONS
+   =================================== */
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--accent) 0%,
+    var(--accent-dark) 100%
+  );
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-light);
+  border: 2px solid var(--primary-light);
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: white;
+}
+/* تأثيرات الألوان لروابط التواصل في الفوتر */
+
+/* فيسبوك - اللون الأزرق الرسمي */
+.social-link.facebook:hover {
+  background-color: #1877f2 !important;
+  color: white !important;
+  border-color: #1877f2 !important;
+  box-shadow: 0 4px 15px rgba(24, 119, 242, 0.4);
+}
+
+/* انستغرام - تدرج لوني احترافي */
+.social-link.instagram:hover {
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  ) !important;
+  color: white !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
+}
+
+/* واتساب - اللون الأخضر الرسمي (تم تحديثه للتناسق) */
+.social-link.whatsapp-footer:hover {
+  background-color: #25d366 !important;
+  color: white !important;
+  border-color: #25d366 !important;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+/* ===================================
+   5. NAVIGATION BAR
+   =================================== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: white;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.logo-icon {
+  font-size: 2rem;
+}
+
+.logo-text {
+  font-family: var(--font-display);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--gray-700);
+  font-weight: 500;
+  position: relative;
+  transition: var(--transition-fast);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-menu-btn span {
+  width: 25px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: var(--transition-fast);
+}
+
+/* ===================================
+   6. HERO SECTION (VIDEO BACKGROUND)
+   =================================== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #0f172a; /* لون احتياطي في حال تأخر الفيديو */
+}
+
+/* تنسيق الفيديو ليكون خلفية كاملة */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* يضمن تغطية الفيديو للشاشة دون تشويه */
+  z-index: 0;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  animation: slideInUp 0.8s ease-out 0.2s both;
+}
+
+/* تنسيق الصور العائمة (Floating Cards) كما هي */
+.hero-image {
+  position: relative;
+  left: 0;
+  height: 400px;
+}
+
+.floating-card {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  box-shadow: var(--shadow-xl);
+  animation: float 3s ease-in-out infinite;
+}
+
+.card-2 {
+  top: 130px;
+  right: 50px;
+  animation-delay: 0.5s;
+}
+.card-3 {
+  bottom: 50px;
+  right: 150px;
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* للموبايل */
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    padding: 2rem 0;
+    text-align: center;
+  }
+  .hero-image {
+    display: none;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+/* ===================================
+   7. ABOUT SECTION
+   =================================== */
+
+.about {
+  padding: 5rem 0;
+  background: var(--gray-50);
+}
+
+.about-text h2 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: var(--gray-700);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.about-feature {
+  background: var(--gray-50);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-right: 4px solid var(--accent);
+}
+
+.about-feature h4 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.about-feature p {
+  font-size: 0.95rem;
+  color: var(--gray-600);
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+/* ===================================
+   8. SERVICES SECTION
+   =================================== */
+
+.services {
+  padding: 5rem 0;
+  background: white;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  color: var(--accent-light);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  border-top: 4px solid var(--accent);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(
+    135deg,
+    var(--accent) 0%,
+    var(--accent-dark) 100%
+  );
+  border-radius: 12px;
+  color: white;
+}
+
+.service-icon i {
+  font-size: 2.5rem;
+}
+
+/* Facebook Colors */
+.facebook-icon {
+  background: linear-gradient(135deg, #1877f2 0%, #0a66c2 100%) !important;
+}
+
+.facebook-card {
+  border-top-color: #1877f2 !important;
+}
+
+.facebook-card:hover {
+  box-shadow: 0 10px 30px rgba(24, 119, 242, 0.3);
+}
+
+/* Instagram Colors */
+.instagram-icon {
+  background: linear-gradient(
+    135deg,
+    #e1306c 0%,
+    #c13584 50%,
+    #833ab4 100%
+  ) !important;
+}
+
+.instagram-card {
+  border-top-color: #e1306c !important;
+}
+
+.instagram-card:hover {
+  box-shadow: 0 10px 30px rgba(225, 48, 108, 0.3);
+}
+
+/* TikTok Colors */
+.tiktok-icon {
+  background: linear-gradient(135deg, #000000 0%, #25f4ee 100%) !important;
+}
+
+.tiktok-card {
+  border-top-color: #000000 !important;
+}
+
+.tiktok-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Telegram Colors */
+.telegram-icon {
+  background: linear-gradient(135deg, #0088cc 0%, #0098d4 100%) !important;
+}
+
+.telegram-card {
+  border-top-color: #0088cc !important;
+}
+
+.telegram-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 136, 204, 0.3);
+}
+
+/* WhatsApp Colors */
+.whatsapp-icon {
+  background: linear-gradient(135deg, #25d366 0%, #20ba5a 100%) !important;
+}
+
+.whatsapp-card {
+  border-top-color: #25d366 !important;
+}
+
+.whatsapp-card:hover {
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+}
+
+/* Security Colors */
+.security-icon {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%) !important;
+}
+
+.security-card {
+  border-top-color: #ff6b6b !important;
+}
+
+.security-card:hover {
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+}
+
+.service-card h3 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.service-card p {
+  margin-bottom: 1.5rem;
+  color: var(--gray-600);
+}
+
+.service-list {
+  list-style: none;
+}
+
+.service-list li {
+  padding: 0.5rem 0;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+
+/* ===================================
+   9. PRICING SECTION
+   =================================== */
+
+.pricing {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+}
+
+.pricing-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  border: 2px solid var(--gray-300);
+  background: white;
+  color: var(--gray-700);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+}
+
+.tab-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.tab-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.pricing-content {
+  position: relative;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.pricing-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  position: relative;
+}
+
+.pricing-card.featured {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-xl);
+  border: 2px solid var(--accent);
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.pricing-card.featured:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--accent);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.pricing-card h4 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: var(--gray-600);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.features-list {
+  list-style: none;
+}
+
+.features-list li {
+  padding: 0.5rem 0;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+
+/* ===================================
+   10. FEATURES SECTION
+   =================================== */
+
+.features {
+  padding: 5rem 0;
+  background: white;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 12px;
+  background: var(--gray-100);
+  transition: var(--transition);
+}
+
+.feature-item:hover {
+  background: var(--accent);
+  transform: translateY(-5px);
+}
+
+.feature-item:hover h3,
+.feature-item:hover p {
+  color: white;
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background: var(--gray-100);
+  border-radius: 50%;
+}
+
+.feature-item:hover .feature-icon {
+  background: var(--accent);
+  color: white;
+}
+
+.feature-icon i {
+  font-size: 2rem;
+}
+
+.feature-item h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.feature-item p {
+  color: var(--gray-600);
+}
+
+/* ===================================
+   11. QUICK ORDER
+   =================================== */
+.quick-order {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #0f2438 0%, #1a3a52 100%);
+  color: white;
+}
+
+.order-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.quick-order .form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--accent-light);
+}
+
+.quick-order input,
+.quick-order select {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  font-family: "Cairo", sans-serif;
+}
+
+.order-btn {
+  width: 100%;
+  padding: 15px !important;
+  font-size: 1.2rem !important;
+  background: #25d366 !important;
+  border: none !important;
+}
+
+.order-btn:hover {
+  background: #1eb954 !important;
+  transform: translateY(-3px);
+}
+
+/* للموبايل */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* تنسيق قسم طلب الخدمة الجديد */
+.quick-order {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #0f2438 0%, #1a3a52 100%);
+  color: white;
+}
+
+.order-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.quick-order .form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--accent-light);
+}
+
+.quick-order input,
+.quick-order select {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  font-family: "Cairo", sans-serif;
+}
+
+.order-btn {
+  width: 100%;
+  padding: 15px !important;
+  font-size: 1.2rem !important;
+  background: #25d366 !important; /* لون الواتساب */
+  border: none !important;
+}
+
+.order-btn:hover {
+  background: #1eb954 !important;
+  transform: translateY(-3px);
+}
+
+/* للموبايل */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* تنسيق صندوق معلومات الدفع المماثل للصورة */
+.payment-details-box {
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #ffffff; /* خلفية بيضاء لبروز النص */
+  color: #333;
+  transition: all 0.3s ease-in-out;
+  animation: fadeIn 0.5s ease;
+}
+
+.payment-details-box h4 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.payment-details-box .account-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+  color: #000;
+}
+
+.payment-details-box p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 0;
+}
+
+/* حالة سيريتل كاش (إطار أحمر منقط) */
+.payment-details-box.syriatel-style {
+  border: 3px dashed #d14d5d;
+}
+.payment-details-box.syriatel-style h4 {
+  color: #d14d5d;
+}
+
+/* حالة MTN كاش (إطار أصفر منقط) */
+.payment-details-box.mtn-style {
+  border: 3px dashed #ffcc00;
+}
+.payment-details-box.mtn-style h4 {
+  color: #cca300;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} /* تنسيق الملاحظة الهامة داخل صندوق الدفع */
+.critical-note {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #fff5f5; /* خلفية محمرة خفيفة */
+  border: 1px solid #feb2b2;
+  border-radius: 10px;
+  color: #c53030; /* لون أحمر غامق للتنبيه */
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.critical-note i {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #ef4444;
+}
+
+.critical-note strong {
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.instruction-text {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+/* تعديل بسيط للصندوق ليتناسب مع المحتوى الجديد */
+.payment-details-box {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+/* تنسيق خانة رفع الملفات */
+.screenshot-group {
+  margin-top: 15px;
+  animation: fadeIn 0.5s ease;
+}
+
+.file-input-wrapper {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  border: 2px dashed var(--accent);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.file-input-wrapper input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.custom-file-label {
+  color: var(--primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-file-label i {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+/* عندما يختار الزبون ملفاً */
+.file-input-wrapper.file-selected {
+  border-style: solid;
+  background: #e6fffa;
+}
+/* تنسيق الملاحظة الهامة داخل صندوق الدفع */
+.critical-note {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #fff5f5; /* خلفية محمرة خفيفة */
+  border: 1px solid #feb2b2;
+  border-radius: 10px;
+  color: #c53030; /* لون أحمر غامق للتنبيه */
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.critical-note i {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #ef4444;
+}
+
+.critical-note strong {
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.instruction-text {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+/* تعديل بسيط للصندوق ليتناسب مع المحتوى الجديد */
+.payment-details-box {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ===================================
+   12. CONTACT SECTION
+   =================================== */
+
+.contact {
+  padding: 5rem 0;
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-dark) 100%
+  );
+  color: white;
+}
+
+.contact .section-title {
+  color: white;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.info-icon {
+  font-size: 2rem;
+}
+
+.info-item h4 {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.info-item p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.info-item a {
+  color: var(--accent-light);
+  font-weight: 600;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2.5rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.form-group {
+  display: flex;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--gray-800);
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--gray-400);
+  font-weight: 400;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2),
+    0 0 20px rgba(16, 185, 129, 0.3);
+  background: white;
+  transform: translateY(-2px);
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.contact-form .btn {
+  margin-top: 0.5rem;
+  padding: 14px 32px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+  transition: all 0.3s ease;
+}
+
+.contact-form .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4);
+}
+
+#phoneNumber {
+  direction: ltr !important;
+  display: inline-block;
+  unicode-bidi: embed;
+}
+
+/* ===================================
+   13. FOOTER
+   =================================== */
+
+.footer {
+  background: var(--gray-900);
+  color: white;
+  padding: 3rem 0 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.footer-section p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-section a:hover {
+  color: var(--accent-light);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  transition: var(--transition-fast);
+}
+
+.social-link:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===================================
+   14. RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    gap: 0;
+    background: white;
+    box-shadow: var(--shadow-lg);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-menu.active {
+    max-height: 300px;
+  }
+
+  .nav-menu li {
+    padding: 1rem;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    padding: 2rem 0;
+  }
+
+  .hero-image {
+    display: none;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-card.featured {
+    transform: scale(1);
+  }
+
+  .pricing-card.featured:hover {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid,
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-tabs {
+    gap: 0.5rem;
+  }
+
+  .tab-btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ===================================
+   14. ANIMATIONS & TRANSITIONS
+   =================================== */
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scroll animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* تنسيق زر العودة للأعلى */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  left: 30px; /* جهة اليسار للمواقع العربية */
+  width: 45px;
+  height: 45px;
+  background: var(--accent); /* يستخدم نفس لون موقعك الأخضر */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+  /* الإخفاء الافتراضي */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+/* حالة الظهور */
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--accent-dark);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* للموبايل: تصغير الزر قليلاً */
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+  }
+}
